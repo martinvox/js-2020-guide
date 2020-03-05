@@ -23,20 +23,44 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
     console.log(logEntries);
 }
 
-function add() {
+function calculateResult(calculationType) {
     const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    let mathOperator;
+    if (calculationType === 'add')  {
+        currentResult += enteredNumber;
+        mathOperator = '+';
+    } else {
+        currentResult -= enteredNumber;
+        mathOperator = '-';
+    }
+    //currentResult += enteredNumber;
+    createAndWriteOutput(mathOperator, initialResult, enteredNumber);
+    writeToLog('add', initialResult, enteredNumber, currentResult);
+
+}
+
+function add() {
+   calculateResult('add')
+   
+   
+   
+   /* const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
     currentResult += enteredNumber;
     createAndWriteOutput('+', initialResult, enteredNumber);
-    writeToLog('add', initialResult, enteredNumber, currentResult);
+    writeToLog('add', initialResult, enteredNumber, currentResult);*/
 }
 
 function substract() {
-    const enteredNumber = getUserNumberInput();
+    calculateResult('substract')
+    
+    
+  /*  const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
     currentResult -= enteredNumber;
     createAndWriteOutput('-', initialResult, enteredNumber);
-    writeToLog('substract', initialResult, enteredNumber, currentResult);
+    writeToLog('substract', initialResult, enteredNumber, currentResult);*/
 }
 
 function multiply() {

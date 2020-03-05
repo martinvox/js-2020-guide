@@ -30,11 +30,17 @@ function calculateResult(calculationType) {
     if (calculationType === 'add')  {
         currentResult += enteredNumber;
         mathOperator = '+';
-    } else {
+    } else if (calculationType === 'substract'){
         currentResult -= enteredNumber;
         mathOperator = '-';
+    } else if (calculationType === 'multiply'){
+        currentResult += enteredNumber;
+        mathOperator = '*';
+    } else {
+        currentResult /= enteredNumber;
+        mathOperator = '/';
     }
-    //currentResult += enteredNumber;
+
     createAndWriteOutput(mathOperator, initialResult, enteredNumber);
     writeToLog('add', initialResult, enteredNumber, currentResult);
 
@@ -42,42 +48,18 @@ function calculateResult(calculationType) {
 
 function add() {
    calculateResult('add')
-   
-   
-   
-   /* const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult += enteredNumber;
-    createAndWriteOutput('+', initialResult, enteredNumber);
-    writeToLog('add', initialResult, enteredNumber, currentResult);*/
 }
 
 function substract() {
     calculateResult('substract')
-    
-    
-  /*  const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult -= enteredNumber;
-    createAndWriteOutput('-', initialResult, enteredNumber);
-    writeToLog('substract', initialResult, enteredNumber, currentResult);*/
 }
 
 function multiply() {
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult *= enteredNumber;
-    createAndWriteOutput('*', initialResult, enteredNumber);
-    writeToLog('multiply', initialResult, enteredNumber, currentResult);
-
+    calculateResult('multiply')
 }
 
 function divide() {
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult /= enteredNumber;
-    createAndWriteOutput('/', initialResult, enteredNumber);
-    writeToLog('divide', initialResult, enteredNumber, currentResult);
+    calculateResult('divide')
 }
 
 addBtn.addEventListener('click', add);

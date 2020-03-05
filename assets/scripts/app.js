@@ -1,3 +1,5 @@
+//delete for git testing
+
 const defaultResult = 0;
 let currentResult = defaultResult;
 let logEntries = [];
@@ -25,6 +27,10 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
 
 function calculateResult(calculationType) {
     const enteredNumber = getUserNumberInput();
+    if (calculationType != 'add' && calculationType != 'substract' && calculationType != 'multiply' 
+    && calculationType != 'divide' || !enteredNumber) {
+        return;
+    }
     const initialResult = currentResult;
     let mathOperator;
     if (calculationType === 'add')  {
@@ -36,10 +42,11 @@ function calculateResult(calculationType) {
     } else if (calculationType === 'multiply'){
         currentResult += enteredNumber;
         mathOperator = '*';
-    } else {
+    } else if (calculationType === 'divide'){
         currentResult /= enteredNumber;
         mathOperator = '/';
     }
+
 
     createAndWriteOutput(mathOperator, initialResult, enteredNumber);
     writeToLog('add', initialResult, enteredNumber, currentResult);

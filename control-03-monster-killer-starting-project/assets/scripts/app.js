@@ -1,3 +1,5 @@
+//small git config test
+
 const attack_value = 10;
 const strong_attack_value = 15;
 const monster_attack_value = 12;
